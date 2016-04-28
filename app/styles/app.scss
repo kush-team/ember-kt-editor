@@ -1,0 +1,51 @@
+.sidebar {
+    position: fixed;
+    background: #393E46;
+    width: 235px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0 15px;
+    color: #fff;
+
+    .user {
+      text-align: center;
+
+      .sub {
+        color: #fff;
+      }
+
+      .image {
+        margin: 15px auto;
+
+      }
+
+      .button {
+        margin-top: 15px;
+      }
+    }
+
+    .menu {      
+
+      .icon {
+        float: left !important;
+        margin: 0em 0.5em 0em 0em !important;
+      }
+    }
+}
+
+.main-container {
+    margin-left: 235px;
+    float: left;
+    background: #f1f1f1;
+    width: calc(100% - 235px);
+    min-height: 100vh;
+    padding: 5em;
+}
+
+.main-menu {
+    margin-left: 235px;
+    position: fixed;
+    width: calc(100% - 235px);
+    z-index: 1000;
+}
