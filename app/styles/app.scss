@@ -4,18 +4,30 @@
 
 $mobile: new-breakpoint(max-width 500px 4);
 
+.ui.modal {
+  z-index: 9999;
+}
+
 .sidebar {
     position: fixed;
     background: #393E46;
-    width: 235px;
+    width: 240px;
     top: 0;
     bottom: 0;
     left: 0;
     padding: 0 15px;
     color: #fff;
+    @include transition(all .8s cubic-bezier(0.7,0,.3,1));
 
     @include media($mobile) {
-      left: -235px;
+      left: -240px;
+      padding-top: 50px;
+      z-index: 999;
+    }
+
+    &.show {
+      left: 0;
+      
     }
 
     .user {
@@ -36,6 +48,7 @@ $mobile: new-breakpoint(max-width 500px 4);
     }
 
     .menu {      
+      background: transparent !important;
 
       .icon {
         float: left !important;
@@ -45,10 +58,10 @@ $mobile: new-breakpoint(max-width 500px 4);
 }
 
 .main-container {
-    margin-left: 235px;
+    margin-left: 240px;
     float: left;
     background: #f1f1f1;
-    width: calc(100% - 235px);
+    width: calc(100% - 240px);
     min-height: 100vh;
     padding: 5em;
 
@@ -60,9 +73,9 @@ $mobile: new-breakpoint(max-width 500px 4);
 }
 
 .main-menu {
-    margin-left: 235px;
+    margin-left: 240px;
     position: fixed;
-    width: calc(100% - 235px);
+    width: calc(100% - 240px);
     z-index: 1000;
 
     @include media($mobile) {

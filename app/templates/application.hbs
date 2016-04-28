@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div {{bind-attr class=":sidebar isShowMenu:show"}}>
 	<div class="user">
 		<img class="ui tiny circular image" src="http://semantic-ui.com/images/wireframe/square-image.png">	
 		<h2 class="ui sub header">Juan Pepe</h2>
@@ -6,7 +6,7 @@
 		<button class="positive ui fluid button">Redactar informe</button>
 	</div>
 
-	<div class="ui secondary inverted vertical menu">
+	<div class="ui inverted vertical menu">
 		<a class="active item">
 		{{fa-icon 'list' class="icon"}}
 		Todos los informes
@@ -25,12 +25,16 @@
 		</a>
 	</div>
 
+
+
+
+
 </div>
 
 <div class="main-menu">
 	<div class="ui menu" style="margin: 0">
 		<div class="item offcanvas">
-			{{t-menu a="typo"}}
+			{{t-menu a="typo"  action="toggleMenu"}}
 		</div>
 		<div class="item publish">
 			<div class="inline field">
@@ -41,16 +45,10 @@
 			</div>
 		</div>
 		<div class="right item">
-			<div class="ui button">Guardar</div>
+			<div class="ui button" {{action 'openModal'}}>Guardar</div>
 		</div>
 	</div>
-	<div class="ui positive icon message" style="margin: 0;">
-  		<i class="notched circle loading icon"></i>
-		<div class="content">
-			<div class="header">Publicando</div>
-			<p>Solo a modo de ejemplo (borrar el div message)</p>
-		</div>
-	</div>
+	
 </div>
 
 
@@ -173,3 +171,19 @@
 		</div>
 	</div>
 </div>
+
+{{#ui-modal name="profile" class="small"}}
+  <i class="close icon"></i>
+  <div class="header">
+    Profile Picture
+  </div>
+   <div class="actions">
+    <div class="ui black deny button">
+      Nope
+    </div>
+    <div class="ui positive right labeled icon button">
+      Yep, that's me
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+{{/ui-modal}}
