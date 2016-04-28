@@ -1,3 +1,9 @@
+// Thoughtbot Vendors
+@import 'bower_components/bourbon/app/assets/stylesheets/bourbon';
+@import 'bower_components/neat/app/assets/stylesheets/neat';
+
+$mobile: new-breakpoint(max-width 500px 4);
+
 .sidebar {
     position: fixed;
     background: #393E46;
@@ -7,6 +13,10 @@
     left: 0;
     padding: 0 15px;
     color: #fff;
+
+    @include media($mobile) {
+      left: -235px;
+    }
 
     .user {
       text-align: center;
@@ -41,6 +51,12 @@
     width: calc(100% - 235px);
     min-height: 100vh;
     padding: 5em;
+
+    @include media($mobile) {
+      margin-left: 0;
+      width: 100%;
+      padding: 5em 2em;
+    }
 }
 
 .main-menu {
@@ -48,4 +64,32 @@
     position: fixed;
     width: calc(100% - 235px);
     z-index: 1000;
+
+    @include media($mobile) {
+      margin-left: 0;
+      width: 100%;
+
+    }
+
+    .offcanvas {
+      padding: 0 !important;
+      display: none !important;
+
+      @include media($mobile) {
+        display: block !important;
+      }
+
+      button {
+        transform: scale(0.6);
+      }
+    }
+
+    .publish {
+      label {
+        @include media($mobile) {
+          color: transparent !important;
+          padding: 0 !important;
+        }
+      }
+    }
 }
