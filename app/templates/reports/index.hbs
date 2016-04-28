@@ -1,0 +1,26 @@
+<section>
+  <div class="section-header">
+    <h1>Reportes</h1>
+    {{link-to "Agregar Reporte" "reports.new" classNames="btn"}}
+  </div>
+  <div class="section-content">
+      <div class="slat-list ">
+        {{#each report in model.reports}}
+          <div class="slat-item -image">
+             <div class="slat-img">
+            </div>
+            <div class="slat-content">
+                         
+              <h4>{{report.title}}</h4>
+            </div>
+            <div class="slat-action">
+              {{link-to "Editar" "reports.edit" report classNames="btn"}}
+              <a href="#" class="btn" {{action "remove" report}}>Eliminar</a>
+            </div>
+          </div>
+        {{/each}}
+
+        {{infinity-loader infinityModel=model}}
+      </div>
+  </div>
+</section>

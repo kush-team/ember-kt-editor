@@ -17,7 +17,6 @@
     "tooltipster": "^3.3.0",
     "neat": "1.7.2",
     "bourbon": "4.2.6",
-    "semantic-ui": "^2.1.8",
-    "ember-simple-auth": "~0.7.3"
+    "semantic-ui": "^2.1.8"
   }
 }

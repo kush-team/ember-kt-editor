@@ -1,0 +1,43 @@
+<form class="ui form" {{action "save" on="submit"}}>
+    <fieldset>
+        <label class="election-publish">
+          {{input type="checkbox" name="isEnabled" checked=model.published}}  
+          {{#if model.enabled}}
+            Publicado <!-- Select Si | No  (Si es referendum) -->
+          {{else}}
+            Publicar en la web
+          {{/if}}
+        </label>
+    </fieldset>  
+    <div class="field">
+      <label>Titulo</label>
+      <input type="text" name="first-name" placeholder="First Name">
+    </div>
+     <div class="field">
+      <label>Resumen</label>
+      {{textarea value=model.excerpt }}
+    </div>
+
+    <div class="field">
+      <label for="">Informe</label>
+      {{froala-editor content=model.message}}
+    </div>
+
+     <div class="upload-file">
+        {{#if model.attachment.url}}
+            {{model.attachment.url}}
+        {{/if}}
+        Adjunto
+        {{file-uploader file=model.attachment multiple=false}}
+    </div>
+
+    <div class="upload-file">
+        {{#if model.picture.url}}
+          <div class="img-container">
+            <img {{bind-attr src=model.picture.url}}>
+          </div>
+        {{/if}}
+        Imagen
+        {{file-uploader file=model.picture multiple=false}}
+    </div>    
+</form>

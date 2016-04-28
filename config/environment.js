@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'ember-kt-editor',
     environment: environment,
     baseURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -19,6 +19,47 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['adapter'] = {
+    'host': 'http://oblat.am',
+    'namespace': 'api',
+    'fileUrl': 'http://oblat.am/',
+    'upload': 'http://oblat.am/upload-file',      
+  };
+
+
+  ENV['contentSecurityPolicy'] = {
+      'default-src': "* 'unsafe-inline' 'unsafe-eval'",
+      'script-src': "* 'unsafe-inline' 'unsafe-eval'",
+      'font-src': "* 'unsafe-inline' 'unsafe-eval'",
+      'connect-src': "*",
+      'img-src': "* 'unsafe-inline' 'unsafe-eval'",
+      'style-src': "* 'unsafe-inline' 'unsafe-eval'",
+      'media-src': "* 'unsafe-inline' 'unsafe-eval'",
+      'report-uri': 'http://irreversible.cc'
+  };
+
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:token',
+    crossOriginWhitelist: ['http://oblat.am'],
+
+    session: 'session:custom',
+  };
+
+  // Sailsjs JSON Web Token (JWT) Configuration
+  ENV['simple-auth-token'] = {
+    serverTokenEndpoint: 'http://oblat.am/auth/login',
+    authorizationPrefix: null,
+    tokenPropertyName: 'access_token',
+    authorizationHeaderName: 'access_token',
+    identificationField: 'email',
+  };   
+
+  ENV['ember-can'] = {
+    inject: {
+      session: 'session:custom'
+    }
+  };      
+  
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -42,6 +83,7 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+
 
   return ENV;
 };
