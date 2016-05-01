@@ -1,50 +1,65 @@
-<div {{bind-attr class=":sidebar isShowMenu:show"}}>
+{{#if session.isAuthenticated}}
+
+	<div {{bind-attr class=":sidebar isShowMenu:show"}}>
 
 
-	{{#if session.isAuthenticated}}
-	<div class="user">
-		<img class="ui tiny circular image" src="http://semantic-ui.com/images/wireframe/square-image.png">	
-		<h2 class="ui sub header">Juan Pepe</h2>
-		<i>editor</i>
-		<button class="positive ui fluid button">Redactar informe</button>
+		<div class="user">
+			<a href="/">
+			<img class="ui tiny circular image" src="http://semantic-ui.com/images/wireframe/square-image.png">	
+			</a>
+			<h2 class="ui sub header">Juan Pepe</h2>
+			<i>editor</i>
+			{{link-to "Crear informe" "reports.new" classNames="positive ui fluid button"}}
+		</div>
+
+		<div class="ui inverted vertical menu">
+			<a class="active item">
+			{{fa-icon 'list' class="icon"}}
+			Todos los informes
+			</a>
+			<a class="item">
+			{{fa-icon 'send' class="icon"}}
+			Últimos subidos
+			</a>
+			<a href="" class="item">
+			{{fa-icon 'floppy-o' class="icon"}}
+			No publicados
+			</a>
+			<a href="" class="item">
+			{{fa-icon 'cog' class="icon"}}
+			Ajustes
+			</a>
+
+			<a {{ action 'invalidateSession' }} class="item">
+				{{fa-icon "sign-out" class="icon"}}
+				Cerrar sesión
+			</a>	
+		</div>
+		
 	</div>
 
-	<div class="ui inverted vertical menu">
-		<a class="active item">
-		{{fa-icon 'list' class="icon"}}
-		Todos los informes
-		</a>
-		<a class="item">
-		{{fa-icon 'send' class="icon"}}
-		Últimos subidos
-		</a>
-		<a href="" class="item">
-		{{fa-icon 'floppy-o' class="icon"}}
-		No publicados
-		</a>
-		<a href="" class="item">
-		{{fa-icon 'cog' class="icon"}}
-		Ajustes
-		</a>
-
-		<a {{ action 'invalidateSession' }}>
-			Salir {{fa-icon "sign-out"}}
-		</a>	
-	</div>
-	{{/if}}
-</div>
-
-<div class="main-menu">
-	<div class="ui menu" style="margin: 0">
-		<div class="item offcanvas">
-			{{t-menu a="typo"  action="toggleMenu"}}
+	<div class="main-menu">
+		<div class="ui menu" style="margin: 0">
+			<div class="item offcanvas">
+				{{t-menu a="typo"  action="toggleMenu"}}
+			</div>
 		</div>
 	</div>
-</div>
 
 
-<div class="main-container">
+	<div class="main-container">
 
-	{{outlet}}
+		{{outlet}}
 
-</div>
+	</div>
+
+{{else}}
+
+	<div class="login">
+
+		{{outlet}}
+
+	</div>
+
+{{/if}}
+

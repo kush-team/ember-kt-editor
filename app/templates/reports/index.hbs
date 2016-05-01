@@ -1,8 +1,10 @@
 <section>
-  <div class="section-header">
-    <h1>Reportes</h1>
-    {{link-to "Agregar Reporte" "reports.new" classNames="btn"}}
-  </div>
+
+  <h3 class="ui dividing header">
+   Reportes
+   <div class="sub header">{{link-to "Agregar Reporte" "reports.new" classNames="btn"}}</div>
+  </h3>
+
   <div class="section-content">
       <div class="slat-list ">
         {{#each report in model.reports}}
