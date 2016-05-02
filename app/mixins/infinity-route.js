@@ -98,7 +98,7 @@ export default Ember.Mixin.create({
         infinityModel.set('reachedInfinity', !_this.get('_canLoadMore'));
         //_this.set('controller.model.reachedInfinity', !_this.get('_canLoadMore'));
         infinityModel.set('reachedInfinity', !_this.get('_canLoadMore'));
-        Ember.run.scheduleOnce('afterRender', _this, 'infinityModelUpdated', { lastPageLoaded: startingPage, totalPages: totalPages, newObjects: infinityModel });
+        //Ember.run.scheduleOnce('afterRender', _this, 'infinityModelUpdated', { lastPageLoaded: startingPage, totalPages: totalPages, newObjects: infinityModel });
       },
       function() {
         throw new Ember.Error("Could not fetch Infinity Model. Please check your serverside configuration.");

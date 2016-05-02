@@ -1,13 +1,11 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
-import InfinityRoute from "../../mixins/infinity-route";
 
 
-export default Ember.Route.extend(InfinityRoute, AuthenticatedRouteMixin, {
-  _listName: 'model',
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   model: function() {
-      return this.infinityModel("report", { perPage: 10, startingPage: 1});
+      return this.store.find("report", {sort: 'createdAt DESC'});
   },
 
   actions: {
@@ -15,13 +13,7 @@ export default Ember.Route.extend(InfinityRoute, AuthenticatedRouteMixin, {
       if(confirm('Are you sure?')) {
         model.destroyRecord();
       }
-    },
-    search: function () {
-      this.set('_listName', 'model.content');
-
-      var filter = { perPage: 10, startingPage: 1};
-      this.get('controller').set('model', this.infinityModel("report", filter))
-    }    
+    } 
   }
 });
 

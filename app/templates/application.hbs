@@ -7,29 +7,21 @@
 			<a href="/">
 			<img class="ui tiny circular image" src="http://semantic-ui.com/images/wireframe/square-image.png">	
 			</a>
-			<h2 class="ui sub header">Juan Pepe</h2>
+			<h2 class="ui sub header">{{session.user.name}} {{session.user.lastName}}</h2>
 			<i>editor</i>
 			{{link-to "Crear informe" "reports.new" classNames="positive ui fluid button"}}
 		</div>
 
 		<div class="ui inverted vertical menu">
-			<a class="active item">
-			{{fa-icon 'list' class="icon"}}
-			Todos los informes
-			</a>
-			<a class="item">
-			{{fa-icon 'send' class="icon"}}
-			Últimos subidos
-			</a>
-			<a href="" class="item">
-			{{fa-icon 'floppy-o' class="icon"}}
-			No publicados
-			</a>
-			<a href="" class="item">
-			{{fa-icon 'cog' class="icon"}}
-			Ajustes
-			</a>
-
+			
+			{{#link-to 'index' class="item"}}
+				{{fa-icon 'list' class="icon"}}
+				Todos los informes
+			{{/link-to}}
+			{{#link-to 'unpublish' class="item"}}
+				{{fa-icon 'floppy-o' class="icon"}}
+				No publicados
+			{{/link-to}}
 			<a {{ action 'invalidateSession' }} class="item">
 				{{fa-icon "sign-out" class="icon"}}
 				Cerrar sesión

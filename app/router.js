@@ -7,7 +7,9 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
 	this.route("login");
+	this.route("unpublish");
 	this.route('reports', function() {
+		this.route('index');
 		this.route('new');
 		this.route('edit', {
 		  path: ":report_id/edit",
