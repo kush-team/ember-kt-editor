@@ -4,7 +4,8 @@
 
 @import 'login';
 
-$mobile: new-breakpoint(max-width 500px 4);
+$mobile: new-breakpoint(max-width 600px 4);
+$tablet: new-breakpoint(max-width 800px 4);
 
 
 
@@ -14,7 +15,7 @@ $mobile: new-breakpoint(max-width 500px 4);
 
 .sidebar {
     position: fixed;
-    background: #393E46;
+    background: #2D4059;
     width: 240px;
     top: 0;
     bottom: 0;
@@ -39,6 +40,8 @@ $mobile: new-breakpoint(max-width 500px 4);
 
       .sub {
         color: #fff;
+        margin: 0;
+        font-size: 1em;
       }
 
       .image {
@@ -67,12 +70,17 @@ $mobile: new-breakpoint(max-width 500px 4);
     background: #f1f1f1;
     width: calc(100% - 240px);
     min-height: 100vh;
-    padding: 5em;
+    padding: 4em 5em;
 
     @include media($mobile) {
       margin-left: 0;
       width: 100%;
       padding: 5em 2em;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 0 auto;
     }
 }
 
@@ -81,10 +89,12 @@ $mobile: new-breakpoint(max-width 500px 4);
     position: fixed;
     width: calc(100% - 240px);
     z-index: 1000;
+    top: -60px;
 
     @include media($mobile) {
       margin-left: 0;
       width: 100%;
+      top: 0px;
 
     }
 
@@ -97,7 +107,7 @@ $mobile: new-breakpoint(max-width 500px 4);
       }
 
       button {
-        transform: scale(0.6);
+        @include transform(scale(0.6));
       }
     }
 
@@ -109,4 +119,72 @@ $mobile: new-breakpoint(max-width 500px 4);
         }
       }
     }
+}
+
+
+.section-content {
+  .image {
+    @include media($mobile) {
+      display: none !important;
+    }
+  }
+
+  .header {
+    line-height: 23px;
+  }
+
+  .description {
+     display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+
+    p {
+       width: 100%;
+      overflow: hidden;
+      font-size: 16px;
+    }
+  }
+}
+
+
+textarea {
+  height: 8em !important;
+}
+
+.fr-view {
+  min-height: 200px !important;
+}
+
+
+.reports {
+  
+  .content {
+    position: relative;
+    padding: 0 !important;
+  }
+
+  .header {
+    padding-right: 120px;
+
+     @include media($tablet) {
+        padding-right: 0;
+      }
+  }
+
+  .image {
+    display: none !important;
+  }
+
+  .extra {
+      position: absolute !important;
+      right: 0 !important;
+      width: auto !important;
+      left: inherit !important;
+      top: -9px !important;
+
+       @include media($tablet) {
+        position: relative !important;
+        top: 0 !important;
+      }
+  }
 }

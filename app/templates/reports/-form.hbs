@@ -1,43 +1,48 @@
-<form class="ui form" {{action "save" on="submit"}}>
-    <fieldset>
+<form class="ui large form" {{action "save" on="submit"}}>
+    <br>
+    <div class="field">
         <label class="election-publish">
           {{input type="checkbox" name="isEnabled" checked=model.published}}  
           {{#if model.enabled}}
-            Publicado <!-- Select Si | No  (Si es referendum) -->
+            Publicado
           {{else}}
             Publicar en la web
           {{/if}}
         </label>
-    </fieldset>  
+    </div> 
+    <input type="submit" class="ui button blue" value="Guardar">
+    <br>
+    <br>
     <div class="field">
       <label>Titulo</label>
-      <input type="text" name="first-name" placeholder="First Name">
+      {{input type="text" value=model.title}}
     </div>
      <div class="field">
       <label>Resumen</label>
       {{textarea value=model.excerpt }}
     </div>
 
+    <div class="two fields">
+      <div class="field">
+        <label>Imagen</label>
+        {{#if model.picture.url}}
+        <img {{bind-attr src=model.picture.url}} width="150px">
+        {{/if}}
+        {{file-uploader file=model.picture multiple=false}}
+      </div>
+      <div class="field">
+        <label>Adjunto</label>
+        {{#if model.attachment.url}}
+          {{model.attachment.url}}
+        {{/if}}
+        {{file-uploader file=model.attachment multiple=false}}
+      </div>
+    </div>
+
     <div class="field">
       <label for="">Informe</label>
       {{froala-editor content=model.message}}
-    </div>
+    </div> 
 
-     <div class="upload-file">
-        {{#if model.attachment.url}}
-            {{model.attachment.url}}
-        {{/if}}
-        Adjunto
-        {{file-uploader file=model.attachment multiple=false}}
-    </div>
-
-    <div class="upload-file">
-        {{#if model.picture.url}}
-          <div class="img-container">
-            <img {{bind-attr src=model.picture.url}}>
-          </div>
-        {{/if}}
-        Imagen
-        {{file-uploader file=model.picture multiple=false}}
-    </div>    
+    
 </form>

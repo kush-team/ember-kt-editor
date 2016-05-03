@@ -1,26 +1,41 @@
 
+
 <section>
-  <h3 class="ui dividing header">
-    Ultimos reportes
-    <div class="sub header">{{link-to "Agregar Reporte" "reports.new" classNames="btn"}}</div>
-  </h3>
+  <h2 class="ui dividing header">
+    Sin publicar
+     <div class="sub header">{{link-to "Crear informe" "reports.new" classNames="btn"}}</div>
+  </h2>
 
   <div class="section-content">
-      <div class="slat-list ">
-        {{#each report in model}}
-          <div class="slat-item -image">
-             <div class="slat-img">
-            </div>
-            <div class="slat-content">
-                         
-              <h4>{{report.title}}</h4>
-            </div>
-            <div class="slat-action">
-              {{link-to "Editar" "reports.edit" report classNames="btn"}}
-              <a href="#" class="btn" {{action "remove" report}}>Eliminar</a>
+      <div class="ui divided items">
+       {{#each report in model}}
+      <div class="item">
+        <div class="image">
+          <img src="{{report.picture.url}}">
+        </div>
+        <div class="content">
+          <a class="header">{{report.title}}</a>
+          <div class="meta">
+            {{#if report.published}}
+              <a class="ui blue label tiny ">Publicado</a>
+            {{else}}
+              <a class="ui grey label tiny ">Sin publicar</a>
+            {{/if}}
+            <span >{{time-ago-in-words report.createdAt}}</span>
+          </div>
+          <div class="description">
+            <p>{{report.excerpt}}</p>
+          </div>
+          <div class="extra">
+            {{link-to "Editar" "reports.edit" report classNames="tiny ui green inverted button"}}
+            <div class="tiny ui red inverted button" {{action "remove" report}}>
+              Eliminar
             </div>
           </div>
-        {{/each}}
+        </div>
       </div>
+       {{/each}}
+    </div>
   </div>
 </section>
+
