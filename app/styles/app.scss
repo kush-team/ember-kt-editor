@@ -3,7 +3,8 @@
 @import 'bower_components/neat/app/assets/stylesheets/neat';
 
 $mobile: new-breakpoint(max-width 600px 4);
-$tablet: new-breakpoint(max-width 800px 4);
+$tablet: new-breakpoint(max-width 800px 12);
+$desktop: new-breakpoint(min-width 1400px 12);
 
 @import 'login';
 @import 'main-menu';
