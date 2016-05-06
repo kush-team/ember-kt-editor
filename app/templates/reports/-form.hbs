@@ -1,11 +1,7 @@
 <form class="ui large form" {{action "save" on="submit"}}>
-    
     <div class="field -action">
         {{ui-checkbox name="isEnabled" checked=model.published class="toggle" label="Publicar"}}
     </div> 
-
-    
-
 
     <input type="submit" class="ui button blue -action" value="Guardar">
 
@@ -39,6 +35,4 @@
       <label for="">Informe</label>
       {{froala-editor content=model.message}}
     </div> 
-
-    
 </form>
