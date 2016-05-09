@@ -51,7 +51,10 @@
   },
   "main": "dist/index.html",
   "window": {
+    "title": "Oblat Editor",
     "width": 960,
-    "height": 600
+    "height": 600,
+    "frame": false,
+    "toolbar": false
   }
 }

@@ -1,5 +1,10 @@
 body {
   background-color: #DADADA;
+  padding-top: 30px;
+
+   @include media($mobile) {
+		padding: 0;
+    }
 }
 .login > .grid {
   height: 100vh;

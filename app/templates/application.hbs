@@ -1,4 +1,19 @@
 {{#if session.isAuthenticated}}
+	
+	<div class="windows-menu">
+		<div class="app-title">Oblat Editor</div>
+		<div class="controls">
+			<div class="minimize">
+				{{fa-icon 'minus'}}
+			</div>
+			<div class="maximize">
+				{{fa-icon 'square-o'}}
+			</div>
+			<div class="close">
+				{{fa-icon 'close'}}
+			</div>
+		</div>
+	</div>
 
 	<div {{bind-attr class=":sidebar isShowMenu:show"}}>
 

@@ -8,6 +8,7 @@
     padding: 0 15px;
     color: #fff;
     @include transition(all .8s cubic-bezier(0.7,0,.3,1));
+    padding-top: 30px;
 
     @include media($mobile) {
       left: -240px;
