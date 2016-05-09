@@ -16,8 +16,10 @@ export default Ember.Mixin.create({
         console.log('Failed to save the model');
       });
     }
-  },
+  },  
   deactivate: function() {
-    this.currentModel.rollback();
+    if (this.currentModel) {
+      this.currentModel.rollback();
+    }
   }
 });
