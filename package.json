@@ -56,5 +56,8 @@
     "height": 600,
     "frame": false,
     "toolbar": false
+  },
+  "webkit": {
+    "plugin": true
   }
 }
