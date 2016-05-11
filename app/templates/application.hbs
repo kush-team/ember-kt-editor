@@ -1,25 +1,25 @@
-{{#if session.isAuthenticated}}
-	
-	<div class="windows-menu">
-		<div class="app-title">Oblat Editor</div>
-		<div class="controls">
-			<div class="minimize" {{action 'minimize'}}>
-				{{fa-icon 'minus'}}
+<div class="windows-menu">
+	<div class="app-title">Oblat Editor</div>
+	<div class="controls">
+		<div class="minimize" {{action 'minimize'}}>
+			{{fa-icon 'minus'}}
+		</div>
+		{{#if isMaximize}}
+			<div class="maximize" {{action 'unmaximize'}}>
+				{{fa-icon 'minus-square-o'}}
 			</div>
-			{{#if isMaximize}}
-				<div class="maximize" {{action 'unmaximize'}}>
-					{{fa-icon 'minus-square-o'}}
-				</div>
-				{{else}}
-				<div class="maximize" {{action 'maximize'}}>
-					{{fa-icon 'square-o'}}
-				</div>
-			{{/if}}
-			<div class="close" {{action 'close'}}>
-				{{fa-icon 'close'}}
+			{{else}}
+			<div class="maximize" {{action 'maximize'}}>
+				{{fa-icon 'square-o'}}
 			</div>
+		{{/if}}
+		<div class="close" {{action 'close'}}>
+			{{fa-icon 'close'}}
 		</div>
 	</div>
+</div>
+
+{{#if session.isAuthenticated}}
 
 	<div {{bind-attr class=":sidebar isShowMenu:show"}}>
 
@@ -67,26 +67,6 @@
 	</div>
 
 {{else}}
-	<div class="windows-menu">
-		<div class="app-title">Oblat Editor</div>
-		<div class="controls">
-			<div class="minimize" {{action 'minimize'}}>
-				{{fa-icon 'minus'}}
-			</div>
-			{{#if isMaximize}}
-				<div class="maximize" {{action 'unmaximize'}}>
-					{{fa-icon 'minus-square-o'}}
-				</div>
-				{{else}}
-				<div class="maximize" {{action 'maximize'}}>
-					{{fa-icon 'square-o'}}
-				</div>
-			{{/if}}
-			<div class="close" {{action 'close'}}>
-				{{fa-icon 'close'}}
-			</div>
-		</div>
-	</div>
 
 	<div class="login">
 

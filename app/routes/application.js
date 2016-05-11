@@ -9,6 +9,10 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 	},
 
 	actions: {
+ 		willTransition: function(transition) { 
+   		 	this.controller.set('isShowMenu', false);
+   		},
+
 		close: function () {
 			var gui = requireNode('nw.gui');
 			gui.App.quit();
